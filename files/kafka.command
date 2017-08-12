@@ -1,6 +1,6 @@
 # 启动
-./zookeeper-server-start.sh config/zookeeper.properties &
-./kafka-server-start.sh config/server.properties &
+bin/zookeeper-server-start.sh config/zookeeper.properties &
+bin/kafka-server-start.sh config/server.properties &
 
 # 关闭
 bin/kafka-server-stop.sh
@@ -8,7 +8,7 @@ bin/zookeeper-server-stop.sh
 
 
 0.查看有哪些主题：
-./kafka-topics.sh --list --zookeeper 192.168.0.201:12181
+bin/kafka-topics.sh --list --zookeeper 127.0.0.1:2181
 
 
 1.查看topic的详细信息
@@ -20,7 +20,7 @@ bin/zookeeper-server-stop.sh
 
 
 3、创建topic
-./kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic testKJ1
+bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test
 
 
 4、为topic增加partition
@@ -28,11 +28,11 @@ bin/zookeeper-server-stop.sh
 
 
 5、kafka生产者客户端命令
-./kafka-console-producer.sh --broker-list localhost:9092 --topic testKJ1
+bin/kafka-console-producer.sh --broker-list localhost:9092 --topic test
 
 
 6、kafka消费者客户端命令
-./kafka-console-consumer.sh -zookeeper localhost:2181 --from-beginning --topic testKJ1
+./kafka-console-consumer.sh -zookeeper localhost:2181 --from-beginning --topic mytest2
 
 
 7、kafka服务启动
